@@ -1105,9 +1105,9 @@ class Script(scripts.Script):
                         obp_options[obp_preset_name] = opts
                         OBPresets.save_obp_preset(obp_options)
                         choices = [OBPresets.RANDOM_PRESET_OBP] + list(obp_options.keys()) + [OBPresets.CUSTOM_OBP]
-                        return gr(choices=choices, value=obp_preset_name)
+                        return gr.update(choices=choices, value=obp_preset_name)
                     else:
-                        return gr()
+                        return gr.update()
 
         obp_preset_save.click(act_obp_preset_save,
                     inputs=obp_outputs,
@@ -1319,27 +1319,27 @@ class Script(scripts.Script):
         def onlyupscalevalues(onlyupscale):
              onlyupscale = not onlyupscale
              return {
-                  amountofimages: gr(visible=onlyupscale),
-                  size: gr(visible=onlyupscale),
-                  samplingsteps: gr(visible=onlyupscale),
-                  cfg: gr(visible=onlyupscale),
+                  amountofimages: gr.update(visible=onlyupscale),
+                  size: gr.update(visible=onlyupscale),
+                  samplingsteps: gr.update(visible=onlyupscale),
+                  cfg: gr.update(visible=onlyupscale),
 
-                  hiresfix: gr(visible=onlyupscale),
-                  hiressteps: gr(visible=onlyupscale),
-                  hiresscale: gr(visible=onlyupscale),
-                  denoisestrength: gr(visible=onlyupscale),
-                  upscaler: gr(visible=onlyupscale),
+                  hiresfix: gr.update(visible=onlyupscale),
+                  hiressteps: gr.update(visible=onlyupscale),
+                  hiresscale: gr.update(visible=onlyupscale),
+                  denoisestrength: gr.update(visible=onlyupscale),
+                  upscaler: gr.update(visible=onlyupscale),
 
-                  model: gr(visible=onlyupscale),
-                  samplingmethod: gr(visible=onlyupscale),
-                  upscaler: gr(visible=onlyupscale),
+                  model: gr.update(visible=onlyupscale),
+                  samplingmethod: gr.update(visible=onlyupscale),
+                  upscaler: gr.update(visible=onlyupscale),
 
-                  qualitygate: gr(visible=onlyupscale),
-                  quality: gr(visible=onlyupscale),
-                  runs: gr(visible=onlyupscale),
-                  qualityhiresfix: gr(visible=onlyupscale),
-                  qualitymode: gr(visible=onlyupscale),
-                  qualitykeep: gr(visible=onlyupscale)
+                  qualitygate: gr.update(visible=onlyupscale),
+                  quality: gr.update(visible=onlyupscale),
+                  runs: gr.update(visible=onlyupscale),
+                  qualityhiresfix: gr.update(visible=onlyupscale),
+                  qualitymode: gr.update(visible=onlyupscale),
+                  qualitykeep: gr.update(visible=onlyupscale)
 
 
              }
@@ -1354,10 +1354,10 @@ class Script(scripts.Script):
         # Turn things off and on for hiresfix
         def hireschangevalues(hiresfix):
              return {
-                  hiressteps: gr(visible=hiresfix),
-                  hiresscale: gr(visible=hiresfix),
-                  denoisestrength: gr(visible=hiresfix),
-                  upscaler: gr(visible=hiresfix)
+                  hiressteps: gr.update(visible=hiresfix),
+                  hiresscale: gr.update(visible=hiresfix),
+                  denoisestrength: gr.update(visible=hiresfix),
+                  upscaler: gr.update(visible=hiresfix)
              }
         
         hiresfix.change(
@@ -1369,11 +1369,11 @@ class Script(scripts.Script):
         # Turn things off and on for quality gate
         def qgatechangevalues(qualitygate):
              return {
-                  quality: gr(visible=qualitygate),
-                  runs: gr(visible=qualitygate),
-                  qualityhiresfix: gr(visible=qualitygate),
-                  qualitymode: gr(visible=qualitygate),
-                  qualitykeep: gr(visible=qualitygate)
+                  quality: gr.update(visible=qualitygate),
+                  runs: gr.update(visible=qualitygate),
+                  qualityhiresfix: gr.update(visible=qualitygate),
+                  qualitymode: gr.update(visible=qualitygate),
+                  qualitykeep: gr.update(visible=qualitygate)
              }
         
         qualitygate.change(
@@ -1385,16 +1385,16 @@ class Script(scripts.Script):
         # Turn things off and on for USDU
         def ultimatesdupscalechangevalues(ultimatesdupscale):
              return {
-                  usdutilewidth: gr(visible=ultimatesdupscale),
-                  usdutileheight: gr(visible=ultimatesdupscale),
-                  usdumaskblur: gr(visible=ultimatesdupscale),
-                  usduredraw: gr(visible=ultimatesdupscale),
+                  usdutilewidth: gr.update(visible=ultimatesdupscale),
+                  usdutileheight: gr.update(visible=ultimatesdupscale),
+                  usdumaskblur: gr.update(visible=ultimatesdupscale),
+                  usduredraw: gr.update(visible=ultimatesdupscale),
 
-                  usduSeamsfix: gr(visible=ultimatesdupscale),
-                  usdusdenoise: gr(visible=ultimatesdupscale),
-                  usduswidth: gr(visible=ultimatesdupscale),
-                  usduspadding: gr(visible=ultimatesdupscale),
-                  usdusmaskblur: gr(visible=ultimatesdupscale)
+                  usduSeamsfix: gr.update(visible=ultimatesdupscale),
+                  usdusdenoise: gr.update(visible=ultimatesdupscale),
+                  usduswidth: gr.update(visible=ultimatesdupscale),
+                  usduspadding: gr.update(visible=ultimatesdupscale),
+                  usdusmaskblur: gr.update(visible=ultimatesdupscale)
              }
         
         ultimatesdupscale.change(
@@ -1406,14 +1406,14 @@ class Script(scripts.Script):
         # Turn things off and on for EXTRAS
         def enableextraupscalechangevalues(enableextraupscale):
              return {
-                  extrasupscaler1: gr(visible=enableextraupscale),
-                  extrasupscaler2: gr(visible=enableextraupscale),
-                  extrasupscaler2visiblity: gr(visible=enableextraupscale),
-                  extrasresize: gr(visible=enableextraupscale),
+                  extrasupscaler1: gr.update(visible=enableextraupscale),
+                  extrasupscaler2: gr.update(visible=enableextraupscale),
+                  extrasupscaler2visiblity: gr.update(visible=enableextraupscale),
+                  extrasresize: gr.update(visible=enableextraupscale),
 
-                  extrasupscaler2gfpgan: gr(visible=enableextraupscale),
-                  extrasupscaler2codeformer: gr(visible=enableextraupscale),
-                  extrasupscaler2codeformerweight: gr(visible=enableextraupscale)
+                  extrasupscaler2gfpgan: gr.update(visible=enableextraupscale),
+                  extrasupscaler2codeformer: gr.update(visible=enableextraupscale),
+                  extrasupscaler2codeformerweight: gr.update(visible=enableextraupscale)
              }
         
         enableextraupscale.change(
